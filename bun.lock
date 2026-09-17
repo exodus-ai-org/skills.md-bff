@@ -5,13 +5,13 @@
     "": {
       "name": "hono",
       "dependencies": {
+        "@types/node": "^26.1.1",
         "@vercel/oidc": "^3.8.8",
         "hono": "^4.13.8",
+        "typescript": "^7.0.2",
       },
       "devDependencies": {
-        "@types/node": "^26.1.1",
         "tsx": "^4.23.0",
-        "typescript": "^7.0.2",
       },
     },
   },
