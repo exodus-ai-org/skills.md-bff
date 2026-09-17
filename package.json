@@ -1,0 +1,13 @@
+{
+  "name": "hono",
+  "type": "module",
+  "dependencies": {
+    "@vercel/oidc": "^3.8.8",
+    "hono": "^4.13.8"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "tsx": "^4.23.0",
+    "typescript": "^7.0.2"
+  }
+}
