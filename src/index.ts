@@ -20,7 +20,7 @@ app.get('/', (c) => {
 // OIDC quota.
 app.use('/api/v1/*', async (c, next) => {
   const secret = process.env.BFF_SHARED_SECRET
-  if (secret && c.req.header('x-bff-auth') !== secret) {
+  if (!secret || c.req.header('x-bff-auth') !== secret) {
     return c.json({ error: 'unauthorized' }, 401)
   }
   await next()
