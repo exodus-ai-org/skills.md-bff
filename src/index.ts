@@ -15,17 +15,6 @@ app.get('/', (c) => {
   return c.text(welcomeStrings.join('\n\n'))
 })
 
-// Only requests carrying our shared secret can use the proxy — the BFF's
-// deployed URL is public, and without this anyone could ride our skills.sh
-// OIDC quota.
-app.use('/api/v1/*', async (c, next) => {
-  const secret = process.env.BFF_SHARED_SECRET
-  if (!secret || c.req.header('x-bff-auth') !== secret) {
-    return c.json({ error: 'unauthorized' }, 401)
-  }
-  await next()
-})
-
 // Proxies everything under /api/v1/* to skills.sh, attaching a fresh Vercel
 // OIDC token per request (skills.sh verifies it directly — it is not a
 // Vercel Connect connector).
